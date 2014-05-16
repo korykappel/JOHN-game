@@ -1,0 +1,95 @@
+// Programming 2D Games
+// Copyright (c) 2011 by: 
+// Charles Kelly
+// Chapter 5 constants.h v1.0
+#ifndef _CONSTANTS_H            // Prevent multiple definitions if this 
+#define _CONSTANTS_H            // file is included in more than one place
+#define WIN32_LEAN_AND_MEAN
+
+#include <windows.h>
+
+//-----------------------------------------------
+// Useful macros
+//-----------------------------------------------
+// Safely delete pointer referenced item
+#define SAFE_DELETE(ptr)       { if (ptr) { delete (ptr); (ptr)=NULL; } }
+// Safely release pointer referenced item
+#define SAFE_RELEASE(ptr)      { if(ptr) { (ptr)->Release(); (ptr)=NULL; } }
+// Safely delete pointer referenced array
+#define SAFE_DELETE_ARRAY(ptr) { if(ptr) { delete [](ptr); (ptr)=NULL; } }
+// Safely call onLostDevice
+#define SAFE_ON_LOST_DEVICE(ptr)    { if(ptr) { ptr->onLostDevice(); } }
+// Safely call onResetDevice
+#define SAFE_ON_RESET_DEVICE(ptr)   { if(ptr) { ptr->onResetDevice(); } }
+#define TRANSCOLOR  SETCOLOR_ARGB(0,255,0,255)  // transparent color (magenta)
+
+//-----------------------------------------------
+//                  Constants
+//-----------------------------------------------
+// graphic images
+const char AVATAR_IMAGE[] = "pictures\\avatar.png";
+const char LEFTRIGHTBLOCK_IMAGE[] = "pictures\\GreenBlock.png";
+const char UPBLOCK_IMAGE[] = "pictures\\GreenBlockUp.png";
+const char DOWNBLOCK_IMAGE[] = "pictures\\GreenBlockDown.png";
+const char SIDEWALL_IMAGE[] = "pictures\\SideWall.png";
+const char TOPWALL_IMAGE[] = "pictures\\TopWall.png";
+const char BOTTOMWALL_IMAGE[] = "pictures\\BottomWall.png";
+const char OBSTACLE_IMAGE[] = "pictures\\GrayBlock.png";
+const char LARGEGATE_IMAGE[] = "pictures\\Gate.png";
+const char SMALLGATE_IMAGE[] = "pictures\\SmallGate.png";
+const char COMPANION_IMAGE[] = "pictures\\Companion.png";
+const char SPIKEBLOCK_IMAGE[] = "pictures\\SpikeBlock.png";
+const char SPLASHSCREEN_IMAGE[] = "pictures\\SplashScreen.png";
+const char ENDSCREEN_IMAGE[] = "pictures\\EndScreen.png";
+const char CREDITS_IMAGE[] = "pictures\\Credits.png";
+const char SCORE_IMAGE[] = "pictures\\ScoreScreen.png";
+const char TORCH_IMAGE[] = "pictures\\Torch.png";
+
+// audio files
+const char WAVE_BANK[]  = "audio\\Win\\Wave Bank.xwb";
+const char SOUND_BANK[] = "audio\\Win\\Sound Bank.xsb";
+
+// audio cues
+const char BREAK[] = "break";
+const char LARGE_GATE[] = "largeGate";
+const char SMALL_GATE[] = "smallGate";
+const char NEXT_LEVEL[] = "nextLevel";
+const char PUSH1[] = "push1";
+const char PUSH2[] = "push2";
+const char PUSH3[] = "push3";
+const char SLIDING[] = "sliding";
+const char WALKING[] = "walking";
+const char HIT[] = "wallHit";
+const char BELL[] = "bell";
+// songs
+const char INTRO[] = "intro music";
+const char END_CREDITS[] = "end credits";
+const char CHOPIN[] = "chopin nocturne";
+
+// window
+const char CLASS_NAME[] = "Spacewar";
+const char GAME_TITLE[] = "Spacewar";
+const bool FULLSCREEN = false;              // windowed or fullscreen
+const UINT GAME_WIDTH =  896;               // width of game in pixels
+const UINT GAME_HEIGHT = 728;               // height of game in pixels
+ 
+// game
+const double PI = 3.14159265;
+const float FRAME_RATE  = 200.0f;               // the target frame rate (frames/sec)
+const float MIN_FRAME_RATE = 10.0f;             // the minimum frame rate
+const float MIN_FRAME_TIME = 1.0f/FRAME_RATE;   // minimum desired time for 1 frame
+const float MAX_FRAME_TIME = 1.0f/MIN_FRAME_RATE; // maximum time used in calculations
+
+// key mappings
+// In this game simple constants are used for key mappings. If variables were used
+// it would be possible to save and restore key mappings from a data file.
+const UCHAR ESC_KEY      = VK_ESCAPE;   // escape key
+const UCHAR ALT_KEY      = VK_MENU;     // Alt key
+const UCHAR ENTER_KEY    = VK_RETURN;   // Enter key
+//const UCHAR R_KEY		 = 0x72;		//r key
+
+
+const float MASTER_SCALE = .875;
+
+
+#endif
